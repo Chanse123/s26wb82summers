@@ -3,4 +3,17 @@ extends layout
 block content
   h1= title
   p This server is running on Render.
-  button(type='button', class='btn btn-secondary') Left
+  button(type='button', class='btn btn-secondary', onclick='reduce()') Left
+  div(id='use') take some away
+
+  script.
+    let current = 11
+    let quantity = 2
+
+    function reduce() {
+      current = current - quantity
+      if (current < 0) {
+        current = 0
+      }
+      document.getElementById('use').innerHTML = 'Reduced by ' + quantity + ' to ' + current
+    }
